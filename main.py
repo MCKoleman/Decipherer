@@ -1,6 +1,35 @@
 import sys
 
 def main():
+    print("Select mode:")
+    print("[1] Encipher")
+    print("[2] Decipher")
+    mode = input()
+
+    match mode:
+        case "1":
+            encipher()
+        case "2":
+            decipher()
+        case _:
+            print("Invalid selection")
+    return
+
+def encipher():
+    text = input("Enter text to encipher: ")
+    print("Select cipher to use:")
+    print("[1] Caesar")
+    cipher = input()
+
+    match cipher:
+        case "1":
+            key = input("Select key [1-26]: ")
+            print("Enciphered text: " + caesar(text, int(key)))
+        case _:
+            print("Invalid selection, exiting.")
+    return
+
+def decipher():
     text = input("Enter text to decipher: ")
     print("Select cipher to try:")
     print("[1] Caesar")
